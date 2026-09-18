@@ -1,0 +1,39 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "ca5b71993996659bab2b83ead0cee7cd"
+name = "Pixlite"
+application_url = "https://pixlite.91.239.208.85.sslip.io"
+embedded = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products,write_files"
+
+[access.admin]
+direct_api_mode = "online"
+
+[auth]
+redirect_urls = [
+  "https://pixlite.91.239.208.85.sslip.io/auth/callback",
+  "https://pixlite.91.239.208.85.sslip.io/auth/shopify/callback",
+  "https://pixlite.91.239.208.85.sslip.io/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2026-10"
+
+[[webhooks.subscriptions]]
+topics = [ "app/uninstalled" ]
+compliance_topics = [ "customers/redact", "customers/data_request", "shop/redact" ]
+uri = "https://pixlite.91.239.208.85.sslip.io/webhooks/app/uninstalled"
+
+[[webhooks.subscriptions]]
+topics = [ "products/create" ]
+uri = "https://pixlite.91.239.208.85.sslip.io/webhooks/products/create"
+
+[pos]
+embedded = false
+
+[build]
+include_config_on_deploy = true
+automatically_update_urls_on_dev = false
