@@ -109,7 +109,7 @@ export default function BillingPage() {
   const fmt = (n) => Number(n).toLocaleString();
 
   return (
-    <Page title="PixelPerfect — Billing" subtitle="Manage your plan">
+    <Page title="Pixlite — Billing" subtitle="Manage your plan">
       <Layout>
         {actionData?.cancelled && !hasActivePlan && (
           <Layout.Section>
