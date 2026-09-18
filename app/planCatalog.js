@@ -21,8 +21,8 @@ export const PLAN_TIERS = [
   },
   {
     name: "Starter",
-    price: 19,
-    priceAnnual: 190,
+    price: 30,
+    priceAnnual: 300,
     images: "2,000",
     tagline: "For growing stores",
     features: [
@@ -36,8 +36,8 @@ export const PLAN_TIERS = [
   },
   {
     name: "Growth",
-    price: 49,
-    priceAnnual: 490,
+    price: 99,
+    priceAnnual: 990,
     images: "15,000",
     tagline: "Most popular",
     popular: true,
@@ -51,8 +51,8 @@ export const PLAN_TIERS = [
   },
   {
     name: "Pro",
-    price: 99,
-    priceAnnual: 990,
+    price: 350,
+    priceAnnual: 3500,
     images: "50,000",
     tagline: "High volume",
     features: [

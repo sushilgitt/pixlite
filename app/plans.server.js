@@ -51,8 +51,8 @@ export const PLANS = [
   {
     tier: "starter",
     name: "Starter",
-    price: 19,
-    priceAnnual: 190,
+    price: 30,
+    priceAnnual: 300,
     monthlyImages: 2000,
     features: feat(
       "optimize", "webp", "altText", "revert",
@@ -62,8 +62,8 @@ export const PLANS = [
   {
     tier: "growth",
     name: "Growth",
-    price: 49,
-    priceAnnual: 490,
+    price: 99,
+    priceAnnual: 990,
     monthlyImages: 15000,
     features: feat(
       "optimize", "webp", "altText", "revert",
@@ -74,8 +74,8 @@ export const PLANS = [
   {
     tier: "pro",
     name: "Pro",
-    price: 99,
-    priceAnnual: 990,
+    price: 350,
+    priceAnnual: 3500,
     monthlyImages: 50000,
     features: feat(
       "optimize", "webp", "altText", "revert",
