@@ -9,10 +9,8 @@ import { PLAN_TIERS } from "../planCatalog";
 // the POST-based redirect intermittently failed during initial setup and looped
 // the merchant back to the app index.
 //
-// NOTE: we intentionally do NOT show prices here. Prices are owned by the
-// Partner Dashboard plans and can be changed there without a code deploy;
-// rendering them in-app would risk showing a stale amount. The merchant sees the
-// real price on Shopify's pricing page after clicking through.
+// Prices come from planCatalog.js and are display-only: the amount actually
+// charged is set on the Partner Dashboard plans, so keep the two in sync.
 export default function PricingTiers({ pricingUrl }) {
   return (
     <div style={s.page}>
@@ -28,6 +26,16 @@ export default function PricingTiers({ pricingUrl }) {
             {tier.popular && <div style={s.popularBadge}>MOST POPULAR</div>}
             <p style={s.tierName}>{tier.name}</p>
             <p style={s.tierTagline}>{tier.tagline}</p>
+            <div style={s.priceRow}>
+              <span style={s.priceCurrency}>$</span>
+              <span style={s.priceAmount}>{tier.price}</span>
+              <span style={s.priceUnit}>/month</span>
+            </div>
+            <p style={s.priceAnnual}>
+              {tier.price === 0
+                ? "Free forever"
+                : `or $${tier.priceAnnual}/year (2 months free)`}
+            </p>
             <a
               href={pricingUrl}
               target="_top"
@@ -128,7 +136,8 @@ const s = {
   },
   tierName: { fontSize: 18, fontWeight: 800, color: "#1A1426", margin: "0 0 2px 0" },
   tierTagline: { fontSize: 12, color: "#B0857A", margin: "0 0 16px 0" },
-  priceRow: { display: "flex", alignItems: "flex-start", marginBottom: 18 },
+  priceRow: { display: "flex", alignItems: "flex-start", marginBottom: 4 },
+  priceAnnual: { fontSize: 12, color: "#B0857A", margin: "0 0 18px 0" },
   priceCurrency: { fontSize: 20, fontWeight: 700, color: "#F4476B", marginTop: 6 },
   priceAmount: { fontSize: 44, fontWeight: 800, color: "#1A1426", lineHeight: 1 },
   priceUnit: { fontSize: 14, color: "#B0857A", marginTop: 8, fontWeight: 400 },
