@@ -35,5 +35,4 @@ uri = "https://pixlite.91.239.208.85.sslip.io/webhooks/products/create"
 embedded = false
 
 [build]
-include_config_on_deploy = true
 automatically_update_urls_on_dev = false
